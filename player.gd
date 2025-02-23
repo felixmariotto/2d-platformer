@@ -37,3 +37,7 @@ func _physics_process(delta: float) -> void:
 			$AnimatedSprite2D.flip_h = velocity.x < 0
 		else:
 			$AnimatedSprite2D.play("idle")
+
+
+func _on_collectibles_collected(message: String) -> void:
+	print("bla")

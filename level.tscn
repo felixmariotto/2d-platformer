@@ -56,7 +56,6 @@ fruitType = 1
 
 [node name="Collectibles2" parent="." instance=ExtResource("8_736sj")]
 position = Vector2(1149, 477)
-fruitType = null
 
 [node name="Collectibles3" parent="." instance=ExtResource("8_736sj")]
 position = Vector2(2016, 800)
