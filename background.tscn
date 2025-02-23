@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfetoxui3y5a6"]
+
+[ext_resource type="Shader" path="res://background.gdshader" id="1_fb17k"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_abwob"]
+shader = ExtResource("1_fb17k")
+
+[node name="ColorRect" type="ColorRect"]
+material = SubResource("ShaderMaterial_abwob")
+offset_right = 2000.0
+offset_bottom = 1000.0
