@@ -1,6 +1,6 @@
 [gd_scene load_steps=65 format=3 uid="uid://c2x2cl7kcr2pg"]
 
-[ext_resource type="Script" path="res://collectibles.gd" id="1_f648c"]
+[ext_resource type="Script" uid="uid://b7sgmqio5n8wy" path="res://collectibles.gd" id="1_f648c"]
 [ext_resource type="Texture2D" uid="uid://c1nd4bws02ic2" path="res://assets/Items/Fruits/Apple.png" id="1_x1s4i"]
 [ext_resource type="Texture2D" uid="uid://dyn22skochulh" path="res://assets/Items/Fruits/Bananas.png" id="2_0jyr3"]
 [ext_resource type="Texture2D" uid="uid://clb0fri6ro4yj" path="res://assets/Items/Fruits/Cherries.png" id="3_7gcxg"]
