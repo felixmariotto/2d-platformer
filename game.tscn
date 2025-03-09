@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4gjhrhk3gmur"]
+[gd_scene load_steps=4 format=3 uid="uid://c4gjhrhk3gmur"]
 
 [ext_resource type="PackedScene" uid="uid://cyfw1emwkti7s" path="res://level.tscn" id="1_30lr4"]
+[ext_resource type="Script" uid="uid://colvmrx7nu6bx" path="res://game.gd" id="1_feb5d"]
+[ext_resource type="PackedScene" uid="uid://b8j6hwlykj4sp" path="res://camera_2d.tscn" id="3_fc0e3"]
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_feb5d")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 offset_right = 40.0
@@ -19,6 +22,9 @@ render_target_update_mode = 4
 
 [node name="Level" parent="HBoxContainer/SubViewportContainer/SubViewport" instance=ExtResource("1_30lr4")]
 
+[node name="Camera2D" parent="HBoxContainer/SubViewportContainer/SubViewport" node_paths=PackedStringArray("target") instance=ExtResource("3_fc0e3")]
+target = NodePath("../Level/Player0")
+
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="HBoxContainer"]
 layout_mode = 2
 
@@ -28,4 +34,7 @@ canvas_item_default_texture_filter = 0
 size = Vector2i(1000, 1000)
 render_target_update_mode = 4
 
-[node name="Level" parent="HBoxContainer/SubViewportContainer2/SubViewport" instance=ExtResource("1_30lr4")]
+[node name="Camera2D" parent="HBoxContainer/SubViewportContainer2/SubViewport" node_paths=PackedStringArray("target") instance=ExtResource("3_fc0e3")]
+target = NodePath("../../../SubViewportContainer/SubViewport/Level/Player1")
+
+[editable path="HBoxContainer/SubViewportContainer/SubViewport/Level"]

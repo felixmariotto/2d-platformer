@@ -50,9 +50,13 @@ position = Vector2(326, 261)
 position = Vector2(639, 455)
 PLAYER_ID = 1
 
-[node name="Camera2D" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_3x3mo")]
+[node name="CameraP0" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_3x3mo")]
 position = Vector2(336, 264)
 target = NodePath("../Player0")
+
+[node name="CameraP1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_3x3mo")]
+position = Vector2(336, 264)
+target = NodePath("../Player1")
 
 [node name="Collectibles" parent="." instance=ExtResource("8_736sj")]
 position = Vector2(1024, 728)
