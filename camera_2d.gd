@@ -19,8 +19,15 @@ func _process(_delta: float) -> void:
 		print( "merge" )
 	"""
 	
-	var targetPos = target0.position
-	targetPos -= playersAxis * viewportRect * 0.25
+	var targetPos;
+	
+	# if condition is met, then the screen must be split
+	if target0.position.distance_to( target1.position ) > ( playersAxis * viewportRect * 0.5 ).length() :
+		targetPos = target0.position
+		var shift = playersAxis * viewportRect * 0.25
+		targetPos -= shift
+	else:
+		targetPos = ( target0.position + target1.position ) * 0.5
 	
 	position = targetPos
 	# position = position.lerp( target0.position, 0.1 )
