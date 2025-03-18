@@ -12,7 +12,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	var viewportRect = get_viewport_rect().size
-	var playersAxis = ( target0.position - target1.position ).normalized()
+	var playersAxis = ( ( target0.position - target1.position ) / viewportRect ).normalized()
 	
 	var targetPos;
 	
