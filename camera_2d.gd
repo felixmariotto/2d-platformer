@@ -9,16 +9,19 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	var viewportRect = get_viewport_rect()
-	var maxDist = viewportRect.size[0]
+	var viewportRect = get_viewport_rect().size
+	var playersAxis = ( target0.position - target1.position ).normalized()
 	
 	"""
 	if target0.position.distance_to( target1.position ) > maxDist:
 		print( "separate" )
 	else:
 		print( "merge" )
-		"""
+	"""
 	
-	var targetPos = ( target0.position + target1.position ) * 0.5
-	position = position.lerp( target0.position, 0.1 )
+	var targetPos = target0.position
+	targetPos -= playersAxis * viewportRect * 0.25
+	
+	position = targetPos
+	# position = position.lerp( target0.position, 0.1 )
 	
