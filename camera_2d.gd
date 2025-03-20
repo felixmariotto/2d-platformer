@@ -11,19 +11,23 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	var viewportRect = get_viewport_rect().size
-	var playersAxis = ( ( target0.position - target1.position ) / viewportRect ).normalized()
-	
+
+	var playersAxis = get_players_axis()
 	var targetPos;
 	
 	# if condition is met, then the screen must be split
-	if target0.position.distance_to( target1.position ) > ( playersAxis * viewportRect * 0.5 ).length() :
+	if get_players_max_dist_overflow() > 0 :
 		targetPos = target0.position
-		var shift = playersAxis * viewportRect * 0.25
+		var shift = playersAxis * get_viewport_rect().size * 0.25
 		targetPos -= shift
 	else:
 		targetPos = ( target0.position + target1.position ) * 0.5
 	
 	position = position.lerp( lastPos, 0.1 )
 	lastPos = targetPos
-	
+
+func get_players_axis():
+	return ( ( target0.position - target1.position ) / get_viewport_rect().size ).normalized()
+
+func get_players_max_dist_overflow():
+	return max( 0, target0.position.distance_to( target1.position ) - ( get_players_axis() * get_viewport_rect().size * 0.5 ).length() )
